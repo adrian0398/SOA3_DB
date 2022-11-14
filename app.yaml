@@ -1,0 +1,8 @@
+#app.yaml
+runtime: python37
+
+env_variables:
+  CLOUD_SQL_USERNAME: root
+  CLOUD_SQL_PASSWORD: root
+  CLOUD_SQL_DATABASE_NAME: soa-db
+  CLOUD_SQL_CONNECTION_NAME: soa3-368600:us-central1:soa3database
