@@ -18,7 +18,7 @@
     PRIMARY KEY(gastos_id)
     );
 
-# Poblar:
+## Poblar:
     INSERT INTO gastos(departamento,descripcion,fecha,monto,nombre) VALUES('Tesoreria','calculadora2','2022-4-10',20000,'Juan');
     INSERT INTO gastos(departamento,descripcion,fecha,monto,nombre) VALUES('Tesoreria','calculadora','2022-10-10',10000,'Ana');
     INSERT INTO gastos(departamento,descripcion,fecha,monto,nombre) VALUES('Tesoreria','telefonos','2022-4-10',50000,'Pedro');
@@ -68,28 +68,29 @@
 
 
 
-# ejemplo query by mes ordenado:
+## Ejemplo query by mes ordenado:
     SELECT departamento,descripcion,fecha,monto,nombre FROM gastos WHERE MONTH(fecha) = 4 AND YEAR(fecha) = 2022 ORDER by fecha;
-# ejemplo query gasto total:
+## Ejemplo query gasto total:
     SELECT SUM(monto) FROM gastos WHERE MONTH(fecha) = 4 AND YEAR(fecha) = 2022;
-# ejemplo query top 3 by month,year:
+## Ejemplo query top 3 by month,year:
     SELECT departamento, SUM(monto) FROM gastos WHERE MONTH(fecha) = 4 AND YEAR(fecha) = 2022 GROUP by departamento ORDER by SUM(monto) DESC LIMIT 3;
 
-# En cLOUD SDK:
+## En CLOUD SDK:
 - gcloud config set project soa3-368600
 - cd SOA3_DB
 - gcloud init
 - gcloud app deploy
 
 
-# Ejemplo Get gastos mensuales:
+## Ejemplo Get gastos mensuales:
     https://soa3-368600.uc.r.appspot.com/gastos_mensuales?month=4&year=2020
-# Ejemplo Get top 3 departamentos con más gastos:
+## Ejemplo Get top 3 departamentos con más gastos:
     https://soa3-368600.uc.r.appspot.com/mayores_gastos_deps?month=4&year=2022
-# Ejemplo Get gastos mensuales total:
+## Ejemplo Get gastos mensuales total:
     https://soa3-368600.uc.r.appspot.com/gastos_totales?month=1&year=2022
-# Ejemplo Post gastos:
+## Ejemplo Post gastos:
     https://soa3-368600.uc.r.appspot.com/gastos
+    
     Json:
         {
        "departamento": "Ventas",
